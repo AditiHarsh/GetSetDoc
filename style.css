@@ -1,0 +1,488 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior:smooth;
+}
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* navigation */
+#navbar{
+    height: auto;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+}
+.navbar{
+    background-color: teal;
+    left: 0;
+    top: 0;
+    padding: 1rem 5rem ;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .brand a{
+    font-family: 'Sacramento', cursive;
+    font-size: 3.5rem;
+    color: white;
+    text-decoration: none;
+
+}
+.navbar .nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar .nav-list .hamburger{
+    /* height: auto; */
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 70px;
+    transition: .4s ease transform;
+    cursor: pointer;
+}
+.navbar .nav-list .hamburger.active{
+    transform: rotate(360deg);
+}
+.navbar .nav-list .hamburger.active .bar::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+.navbar .nav-list .hamburger.active .bar::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+.navbar .nav-list .hamburger.active .bar{
+    background-color: transparent;
+}
+.navbar .nav-list .hamburger .bar{
+    height: 2px;
+    width: 30px;
+    background-color: #ffffff;
+    position: relative;
+    display: flex
+}
+.navbar .nav-list .hamburger .bar::before,
+.navbar .nav-list .hamburger .bar::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    transition: .3s ease all;
+}
+.navbar .nav-list .hamburger .bar::before{
+    top: 8px;
+}
+.navbar .nav-list .hamburger .bar::after{
+    bottom: 8px;
+}
+.navbar .nav-list ul{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 83, 83);
+    padding: 5rem 0;
+    transition: .3s ease transform;
+    transform: translateY(-100%);
+    text-align: center;
+    z-index: -1;
+    
+}
+.navbar .nav-list ul li{
+    list-style: none;
+    display: block;
+    position: relative;
+    padding: 2rem 0;
+}
+.navbar .nav-list ul li::after{
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: .2rem;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    bottom: 0;
+    transition: .3s ease transform;
+}
+.navbar .nav-list ul li:hover:after{
+    transform: translateX(-50%) scale(1);
+}
+.navbar .nav-list ul li a{
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    display: block;
+    letter-spacing: .2rem;
+    padding: 0 3rem;
+}
+.navbar .nav-list.open ul{
+    transform: translateY(90px);
+
+}
+/* navigation */
+/* hero section  */
+.hero{
+    min-height:100vh;
+    width: 100%;
+    padding-top: 100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+}
+.hero .hero-info{
+    width: 100%;
+    text-align: center;
+    /* color: white; */
+    margin: 20px;
+    padding: 20px;
+
+}
+.hero .hero-info .hero-info-heading{
+    font-weight: 500;
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-family: 'Cinzel Decorative', cursive;
+    /* color: white; */
+}
+.hero .hero-info .hero-info-para{
+    font-size: 1.6rem;
+    /* text-transform: uppercase; */
+    /* color: whitesmoke; */
+}
+.hero .hero-info .hero-info-button{
+    margin-top: 30px;
+    padding: 2rem 5rem;
+    display: inline-block;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .6rem;
+    background-color: teal;
+}
+.hero .hero-img{
+    height: auto;
+    width: 80%;
+    margin-bottom: 3rem;
+}
+.hero .hero-img img{
+    height: 100%;
+    width: 100%;
+}
+/* hero section  */
+/* service section  */
+
+.services{
+    flex-direction: column;
+    width:100%;
+    padding: 10rem 5rem;
+
+}
+.services .services-header{
+    width: 100%;
+    text-align: center;
+
+}
+.services .services-header .services-header-heading{
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+
+}
+.services .services-header .services-header-description{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin-top: 20px;
+}
+.services .services-info{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+
+}
+.services .services-info .service{
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    transition: .3s ease transform;
+    margin: 5px;
+}
+.services .services-info .service-card{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: .3s ease transform;
+    display: block;
+}
+.services .services-info .service-card .service-front,
+.services .services-info .service-card .service-back{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(0, 128, 128, 0.342);
+    padding: 10px;
+
+}
+.services .services-info .service-card .service-back{
+    transform: rotateY(180deg);
+}
+.services .services-info .service-card .service-front i{
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+.services .services-info .service-card .service-front .service-front-heading,
+.services .services-info .service-card .service-back .service-back-heading{
+    font-size: 2.5rem;
+    text-transform: capitalize;
+
+}
+.services .services-info .service:hover .service-card{
+    transform: rotateY(180deg);
+}
+.services .services-info .service-card .service-back .service-back-description{
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-align: center;
+
+}
+.services .services-info .service:nth-child(1) .service-card .service-front,
+.services .services-info .service:nth-child(2) .service-card .service-front,
+.services .services-info .service:nth-child(3) .service-card .service-front{
+    background-image: url(./img/pic7.jpg);
+    background-size: cover;
+    position: relative;
+    /* color: white; */
+}
+
+
+
+/*end service section  */
+
+/* about section */
+
+.about{
+    width: 100%;
+    min-width: 50vh;
+    padding: 10rem;
+    flex-direction: column;
+}
+.about .about-info{
+    text-align: center;
+
+}
+.about .about-info .about-info-heading{
+    text-transform: uppercase;
+    font-size: 4rem;
+    letter-spacing: .3rem;
+    color: black;
+}
+.about .about-info .about-info-para{
+    font: 1.2rem;
+    line-height: 2rem;
+    margin-top: 10px;
+}
+.about .about-info .about-info-button{
+    padding: 1.6rem 2.6rem;
+    display: inline-block;
+    background-color: teal;
+    text-decoration: none;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-top: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+
+}
+.about .about-img .about-img-wrapper{
+    margin-top: 50px;
+    height: auto;
+    max-width: 400px;
+    position: relative;
+    display: inline-block;
+}
+.about .about-img .about-img-wrapper img{
+    height: 100%;
+    width: 100%;
+}
+.about .about-img .about-img-wrapper::after{
+    position: absolute;
+    content: "";
+    bottom: -5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 80%;
+    background-color:teal;
+    z-index: -1;
+}
+
+/* about section */
+/* footer section  */
+.footer{
+    min-width: 20vh;
+    width: 100%;
+    background-color: rgb(0, 128, 128);
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    padding: 5rem;
+}
+.footer .footer-contact{
+    padding: 20px;
+
+}
+.footer .footer-contact .footer-contact-heading{
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-bottom: 10px;
+}
+.footer .footer-cantact .footer-contact-info{
+    font-size: 1.4rem;
+    padding-top:10px ;
+    letter-spacing: .2rem;
+}
+.footer .footer-social-sites .footer-social-icon a{
+    color: white;
+    font-size: 3rem;
+    margin: .4rem;
+    display: inline-block;
+}
+/* footer section  */
+
+
+/* media query for desktop and tablet */
+@media only screen and (max-width:600px){
+				.navbar .brand a{
+								font-size:3rem;
+				 }
+				.navbar .nav-list .hamburger{
+								height :65px;
+								width :65px;
+					}
+					.navbar .nav-list ul{
+								top:-20px;	
+				 }
+					 .services .services-info .service{
+        margin: 15px 20px;
+    }
+    
+    .services .services-info .service .service-card .service-front{
+        border-radius: 30px;
+        
+    }
+}
+@media only screen and (min-width:860px){
+    .hero{
+        height: 100vh;
+        flex-direction: row-reverse;
+        padding: 0 5%;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero .hero-info {
+        width: 60%;
+        text-align: center;
+    }
+    .hero .hero-img {
+        height: auto;
+        width: 60%;
+        margin-bottom: 0rem;
+    }
+    .about{
+        width: 80%;
+        margin: 0 auto;
+        flex-direction: row;
+        margin-top: -150px;
+    }
+    .about .about-info{
+        width: 100%;
+        text-align: left;
+        padding-right: 6rem;
+        padding-top: 14rem;
+    }
+    .about .about-info .about-info-para{
+        font-size: 1.5rem;
+    }
+    .services .services-header .services-header-description{
+        max-width: 500px;
+        margin: 0 auto;
+        padding-top: 20px;
+        font-size: 1.5rem;
+
+    }
+    .services .services-info{
+        flex-direction: row;
+        width: 90%;
+    }
+    
+    .services .services-info .service{
+        margin: 0 20px;
+    }
+    
+    .services .services-info .service .service-card .service-front{
+        border-radius: 30px;
+        
+    }
+    .navbar .nav-list .hamburger{
+        display: none;
+    }
+    .navbar{
+        width: 100%;
+    }
+    .navbar .nav-list ul  {
+        transform: translateX(0);
+        position: initial;
+        padding: 0;
+        z-index: initial;
+        background-color: transparent;
+    }
+    .navbar .nav-list ul li{
+        display: inline-block;
+    }
+}
+
+/* media query for desktop and tablet */
+/* mediaquery for desktop only  */
+@media only screen and (min-width:1200px){
+    .hero .hero-info .hero-info-heading{
+        font-size: 6rem;
+    }
+}
+
+/* mediaquery for desktop only  */
